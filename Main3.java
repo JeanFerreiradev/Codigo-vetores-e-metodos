@@ -16,7 +16,7 @@ public class Main3 {
 		System.out.println("[ 3 ] Atualizar nota A3: ");
 		System.out.println("[ 4 ] Mostrar notas do aluno: ");
 		System.out.println("[ 0 ] Sair do Menu: ");
-		System.out.println("\n Digite a opÁ„o:");
+		System.out.println("\n Digite a op√ß√£o:");
 
 		byte opcao = console.nextByte();
 		switch (opcao) {
@@ -37,7 +37,7 @@ public class Main3 {
 			mostrarNotas();
 			break;
 		default:
-			System.err.println("OpÁ„o inv·lida");
+			System.err.println("Op√ß√£o inv√°lida");
 			mostrarMenu();
 			break;
 		}
@@ -61,12 +61,12 @@ public class Main3 {
 		double notaFinal = 0.0;
 		System.out.println("\n Notas: ");
 		for (int i = 0; i < TOTAL_AVALIACOES; i++) {
-			System.out.printf("\nAvaliaÁ„o %s = %.2f ", NOME_AVALIACOES[i], notas[i]);
+			System.out.printf("\nAvalia√ß√£o %s = %.2f ", NOME_AVALIACOES[i], notas[i]);
 			notaFinal += notas[i];
 		}
 		System.out.println("\nNota Final: " + notaFinal);
-		System.out.println("SituaÁ„o: " + analisarSituacao(notaFinal));
-		System.out.println("MÈdia aritmÈtica: " + calcularMedia(notas));
+		System.out.println("Situa√ß√£o: " + analisarSituacao(notaFinal));
+		System.out.println("M√©dia aritm√©tica: " + calcularMedia(notas));
 		System.out.println("A maior nota foi: " + maiorNota(notas));
 		if (notaFinal < 70 && notaFinal > 30 && notas[0] + notas[1] < 60)
 			realizarAvaliacaoIntegrada(notas);
@@ -97,9 +97,9 @@ public class Main3 {
 	static void realizarAvaliacaoIntegrada(double[] notas) {
 		double ai = 0.0;
 		ai = lerNota("Digite nota ai", NOTA_MAX_AVALIACOES[0]);
-		if (notas[0] < notas[1] && ai > notas[0]) {
+		if (notas[0] <= notas[1] && ai > notas[0]) {
 			notas[0] = ai;
-		} else if (notas[1] < notas[0] && ai > notas[1]) {
+		} else if (notas[1] <= notas[0] && ai > notas[1]) {
 			notas[1] = ai;
 		}
 	}
@@ -108,7 +108,7 @@ public class Main3 {
 		if (mediaNotas < 30)
 			return "Reprovado";
 		else if (mediaNotas < 70)
-			return "Em recuperaÁ„o";
+			return "Em recupera√ß√£o";
 		else
 			return "Aprovado";
 	}
