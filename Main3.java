@@ -68,7 +68,7 @@ public class Main3 {
 		System.out.println("Situação: " + analisarSituacao(notaFinal));
 		System.out.println("Média aritmética: " + calcularMedia(notas));
 		System.out.println("A maior nota foi: " + maiorNota(notas));
-		if (notaFinal < 70 && notaFinal > 30 && notas[0] + notas[1] < 60)
+		if (analisarSituacao(notaFinal).equalsIgnoreCase("Em recuperação") && notas[0] + notas[1] < 60)
 			realizarAvaliacaoIntegrada(notas);
 	}
 
@@ -102,6 +102,7 @@ public class Main3 {
 		} else if (notas[1] <= notas[0] && ai > notas[1]) {
 			notas[1] = ai;
 		}
+		
 	}
 
 	static String analisarSituacao(double mediaNotas) {
@@ -115,7 +116,6 @@ public class Main3 {
 
 	public static void main(String[] args) {
 		mostrarMenu();
-
 	}
-
+	
 }
